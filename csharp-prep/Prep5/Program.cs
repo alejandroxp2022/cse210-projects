@@ -34,7 +34,7 @@ class Program
         }
         static void DisplayResult( string name, int square)
         {
-            Console.Write($"{name}, the square of your number: {square}");
+            Console.WriteLine($"{name}, the square of your number: {square}");
         }
     }
 }
