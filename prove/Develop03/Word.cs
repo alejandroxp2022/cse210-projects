@@ -21,7 +21,7 @@ class Word
     public void hideWordcita()
     {
         //string[] _wordChars = word.Split("");
-        //Console.WriteLine("beforeHide: " + _word);
+//        Console.WriteLine("beforeHide: " + _word);
         foreach ( char charw in _word)
         {
             if (char.IsLetter(charw))
@@ -30,7 +30,7 @@ class Word
             }
         }
         _ishidden = true;
-        //Console.WriteLine("afterHide: " + _word);
+  //      Console.WriteLine("afterHide: " + _word);
 
     }
     public string toString()

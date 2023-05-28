@@ -26,17 +26,19 @@ class Scripture
 
         //int counter = wordList.Count();
         Random rand = new Random();
-        int position = rand.Next(_words_count);
         bool hiding = false;
-        
-        do 
-        {
-           if(! wordList[position].isHiddenWord()) 
-           {
-               wordList[position].hideWordcita(); 
-               hiding = true;
-           }
-        } while (!hiding);
+        if(this.isHiddenScripture() == false)
+        { 
+            do 
+            {
+                int position = rand.Next(_words_count);
+                if(! wordList[position].isHiddenWord()) 
+                {
+                    wordList[position].hideWordcita(); 
+                    hiding = true;
+                }
+            } while (!hiding);
+        }
         
     }
 
@@ -44,7 +46,7 @@ class Scripture
     public string toString()
     {
         scriptureout = "";
-        hideWord();
+        //hideWord();
         foreach( Word _word in wordList)
         {
             scriptureout = scriptureout + " " + _word.toString();
@@ -60,6 +62,7 @@ class Scripture
             wordList.Add(_wordcita); 
         }
         _words_count = wordList.Count();
+
     }
 
     public bool isHiddenScripture()

@@ -14,18 +14,19 @@ class Program
         _scripture.setScripture(scripture_text);
 
         Console.WriteLine("\nThis is the scripture to memorize:");
-        Console.WriteLine("" + _reference.toString() + ": " + scripture_text );
+        Console.WriteLine( "" + _reference.toString() + ": " + _scripture.toString());
         Console.WriteLine("Press enter to continue or type 'quit' to finish:");
         string inputKey = Console.ReadLine();
         Console.Clear();
         if (inputKey != "quit")
         {
             do {
+                _scripture.hideWord();
                 Console.WriteLine( "" + _reference.toString() + ": " + _scripture.toString());
                 Console.WriteLine("Press enter to continue or type 'quit' to finish:");
                 inputKey = Console.ReadLine();
                 Console.Clear();
-            } while ( (!_scripture.isHiddenScripture()) || (inputKey != "quit"));
+            } while ( !((_scripture.isHiddenScripture()) || (inputKey == "quit")));
         }
     }
 }
