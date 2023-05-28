@@ -1,14 +1,14 @@
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 class Scripture
 {
     private string scripture;
     private string scriptureout;
     private List<Word> wordList = new List <Word> ();
-    private int countingHidden = 0;
+    private int countingLetters = 0;
     private bool _ishidenscripture = false;
-
     private int _words_count = 0 ;
     
     public Scripture()
@@ -64,15 +64,10 @@ class Scripture
 
     public bool isHiddenScripture()
     {
-        countingHidden = 0;
-        foreach( Word _wordcita in wordList)
-            {
-                if( _wordcita.isHiddenWord()){
-                    countingHidden += 1;
-                }
-            }
-        if ( _words_count <= countingHidden){
-            _ishidenscripture = true; 
+        countingLetters = Regex.Count(scriptureout , @"[A-Za-z0-9]");
+        if (countingLetters == 0)
+        {
+           _ishidenscripture = true;
         }
         return _ishidenscripture;
     }
