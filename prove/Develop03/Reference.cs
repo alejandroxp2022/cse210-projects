@@ -58,7 +58,7 @@ class Reference
         _chapter = chapterList[0];
         String[] verseList = chapterList[1].Split("-");
         _initverse = verseList[0];
-        Regex rgx = new Regex(@"^s*-\d{1-2}");
+        Regex rgx = new Regex(@"^\s*-\d{1-2}");
         
         if ( rgx.IsMatch(_reference))
         {
