@@ -11,7 +11,8 @@ class Program
             Console.WriteLine("     1. Start breathing activity");
             Console.WriteLine("     2. Start reflecting activity");
             Console.WriteLine("     3. Start listing activity");
-            Console.WriteLine("     4. Quit");
+            Console.WriteLine("     4. Start find the keyword activity");
+            Console.WriteLine("     5. Quit");
             Console.Write("Select a choice from the menu: ");
             _tecla  = Console.ReadLine();
             switch (_tecla)
@@ -29,6 +30,11 @@ class Program
                     Listing.RunActivity();
                     break;
                 case "4":
+                    Console.WriteLine("Extra Bonus!");
+                    FindTheKeywordActivity FindTheKey = new FindTheKeywordActivity();
+                    FindTheKey.RunActivity();
+                    break;
+                case "5":
                     Console.WriteLine("Good Bye.");
                     break;
                 default:
@@ -37,6 +43,6 @@ class Program
 
             }
 
-        } while (_tecla != "4");
+        } while (_tecla != "5");
     }
 }
