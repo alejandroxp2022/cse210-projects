@@ -12,7 +12,7 @@ class Program
             Console.WriteLine("     2. Start reflecting activity");
             Console.WriteLine("     3. Start listing activity");
             Console.WriteLine("     4. Quit");
-            Console.Write("Select a choice from the menu:");
+            Console.Write("Select a choice from the menu: ");
             _tecla  = Console.ReadLine();
             switch (_tecla)
             {

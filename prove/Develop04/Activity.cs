@@ -17,7 +17,7 @@ abstract class Activity
     {
         _activityName = "";
         _description = "";
-        _durationInSeconds = 0;
+        //_durationInSeconds = 0;
 
     }
     public void DisplayStartMessage()
@@ -31,7 +31,9 @@ abstract class Activity
     public void SetDurationInSeconds()
     {
         Console.Write("How long, in seconds, would you like for your session?: ");
-        _durationInSeconds = Convert.ToInt32(Console.Read());
+        string input = Console.ReadLine();
+        //_durationInSeconds = Int32.TryParse(input, out _durationInSeconds)
+        Int32.TryParse(input, out _durationInSeconds);
         Console.Clear();
 
     }
