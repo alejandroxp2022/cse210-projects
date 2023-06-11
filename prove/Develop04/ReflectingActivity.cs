@@ -6,10 +6,9 @@ class ReflectingActivity: Activity
     public string _question_prompt;
     public ReflectingActivity()
     {
-        _description = @"This activity will help you reflect on times in your life when you
-        have shown strength and resilience. This will help you recognize the power you
-        have and how you can use it in other aspects of your life.";
-        _activityName = "Reflecting Activity";
+        _description = @"This activity will help you reflect on times in your life when you have shown strength and resilience. 
+This will help you recognize the power you have and how you can use it in other aspects of your life.";
+        _activityName = "Reflecting";
         _durationInSeconds = Convert.ToInt32(0);
     }
     public void SetRandomPrompt()
