@@ -8,9 +8,12 @@ class GoalManager
     protected List<SimpleGoal> SimpleGoals = new List<SimpleGoal>();
     protected List<EternalGoal> EternalGoals = new List<EternalGoal>();
     protected List<ChecklistGoal> ChecklistGoals = new List<ChecklistGoal>();
+    //protected int _goalPosition;
+    protected List<string> GoalNames = new List<string>();
     protected string _filename;
     private string _separator = "|";
     public int _totalPoints;
+    public int _pointsEarned;
     public void CreateGoalMenu()
     {
         string _tecla2;
@@ -42,7 +45,35 @@ class GoalManager
                         break;
                     }
     }
-
+   public void ListNames()
+    {
+        Console.WriteLine("The goals are:");
+        int counter = 0 ;
+        int internal_counter = -1 ;
+        foreach ( SimpleGoal goal in SimpleGoals)
+        {
+            counter++;
+            internal_counter++;
+            Console.WriteLine($"{counter}.- {goal.getName()}");
+            GoalNames.Add($"{counter}|{internal_counter}|SimpleGoal|{goal.getName()}");
+        }
+        internal_counter = -1 ;
+        foreach ( EternalGoal goal in EternalGoals)
+        {
+            counter++;
+            internal_counter++;
+            Console.WriteLine($"{counter}.- {goal.getName()}");
+            GoalNames.Add($"{counter}|{internal_counter}|EternalGoal|{goal.getName()}");
+        }
+        internal_counter = -1 ;
+        foreach ( ChecklistGoal goal in ChecklistGoals)
+        {
+            counter++;
+            internal_counter++;
+            Console.WriteLine($"{counter}.- {goal.getName()}");
+            GoalNames.Add($"{counter}|{internal_counter}|ChecklistGoal|{goal.getName()}");
+        }
+    }
     //  override public void ListGoals()
     //  {
     //     int counter = 0 ;
@@ -83,7 +114,6 @@ class GoalManager
             Console.WriteLine($"{counter}.- [{_checkC}] {goal.getName()} ({goal.getDesc()})  -- Currently completed: {goal.getCount()}/{goal.getTimes()}");
         }
     }
-    //public void SaveAllGoals(SimpleGoal simpleGoal, EternalGoal eternalGoal, ChecklistGoal checklistGoal)
     public void SaveAllGoals()
     {
         Console.WriteLine("What is the filename for the goal file?");
@@ -144,6 +174,33 @@ class GoalManager
     }
     public void RecordEvent()
     {
-        //SimpleGoal.Add(entry);
+        ListNames();
+        Console.WriteLine("");
+        Console.WriteLine("Which goal did you accomplish?");
+        string _orderEvent = Console.ReadLine();
+        foreach ( string _goalName in GoalNames)
+        {
+             string[] parts = _goalName.Split(new[] { "|" }, StringSplitOptions.None);
+             //verifying count
+             if (_orderEvent == parts[0])
+             {
+                // getting type of event
+                if( parts[2] == "SimpleGoal")
+                {
+                    _pointsEarned = SimpleGoals[Convert.ToInt16(parts[1])].getPoints(); 
+                }
+                if( parts[2] == "EternalGoal")
+                {
+                    _pointsEarned = EternalGoals[Convert.ToInt16(parts[1])].getPoints(); 
+                }
+                if( parts[2] == "CheckllistGoal")
+                {
+                    _pointsEarned = ChecklistGoals[Convert.ToInt16(parts[1])].getPoints(); 
+                }
+             }
+        }
+        _totalPoints += _pointsEarned;
+        Console.WriteLine($"Congratulations! You have earned {_pointsEarned} points!");
+        Console.WriteLine($"You now have {_totalPoints} points");
     }
 } 

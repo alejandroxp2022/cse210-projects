@@ -53,15 +53,4 @@ abstract class Goal
         _goalPoints = Convert.ToInt16(Console.ReadLine());
 
     }
-    public void RecordEvent()
-    {
-        var symbols = new List<string> {"5","4","3","2","1"};
-        foreach (var symbol in symbols)
-        {
-            Console.Write($"{symbol}");
-            Thread.Sleep(1000);
-            Console.Write("\b \b"); // Erase the + character
-            //Console.Write("-"); // Replace it with the - character
-        }
-    }
 } 
