@@ -53,6 +53,6 @@ class Program
 
             }
 
-        } while (_tecla != "5");
+        } while (_tecla != "6");
     }
 }

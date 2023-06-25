@@ -32,7 +32,7 @@ class ChecklistGoal: Goal
         _goalDesc = Console.ReadLine();
         Console.WriteLine("What is the amount of points associated with this goal?");
         _goalPoints = Convert.ToInt16(Console.ReadLine());
-        Console.WriteLine("How many times doe this goal need to be accomplished for a bonus?");
+        Console.WriteLine("How many times does this goal need to be accomplished for a bonus?");
         _goalTimes = Convert.ToInt16(Console.ReadLine());
         Console.WriteLine("What is the amount of points associated with this goal?");
         _goalBonus = Convert.ToInt16(Console.ReadLine());

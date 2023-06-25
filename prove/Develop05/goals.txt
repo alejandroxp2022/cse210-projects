@@ -1,2 +1,4 @@
 0
-ChecklistGoal|asdad|asdasd|3|3|3|0
+SimpleGoal|wer|wer|3|False
+EternalGoal|qwe|qwe|4
+ChecklistGoal|sdf|sdf|5|5|5|0

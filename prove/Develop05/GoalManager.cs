@@ -111,10 +111,11 @@ class GoalManager
     public void LoadGoals()
  {
         // To not load entries repeatedly 
-
+        Console.WriteLine("What is the filename for the goal file?");
+        _filename = Console.ReadLine();
         using (StreamReader inputFile = new StreamReader(_filename))
         {
-            _totalPoints = Convert.ToInt16(Console.ReadLine());
+            _totalPoints = Convert.ToInt16(inputFile.ReadLine());
             while (!inputFile.EndOfStream)
             {
                 string line = inputFile.ReadLine();
