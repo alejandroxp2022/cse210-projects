@@ -3,26 +3,29 @@ using System;
 abstract class Goal
 {
     //fields
-    protected List<Goal> _goals;
-    protected List<Goal> Goals { get { return _goals; } set => _goals = value; }
-    protected string _filename;
+    //protected List<Goal> _goals;
+   // protected List<Goal> Goals { get { return _goals; } set => _goals = value; }
     protected string _goalType;
     protected string _goalName;
     protected string _goalDesc;
     protected int _goalPoints;
-    protected bool _goalCheck;
+    protected int _goalTimes;
+    protected int _goalCount;
     //protected int _totalPoints;
      public string getName() { return _goalName; }
      public string getType() { return _goalType; }
      public string getDesc() { return _goalDesc; }
      public int getPoints() { return _goalPoints; }
-     public bool getStatus() {return _goalCheck; }
+     public int getTimes() { return _goalTimes; }
+     public int getCount() { return _goalCount; }
     public Goal(string goalType, string goalName, string goalDesc, int goalPoints )
      {
         _goalType = goalType;
         _goalName = goalName;
         _goalDesc = goalDesc;
         _goalPoints = goalPoints;
+        _goalTimes = 1;
+        _goalCount = 0;
         //_totalPoints = goalPoints;
      }
     public Goal()
@@ -31,15 +34,17 @@ abstract class Goal
         _goalName = "";
         _goalDesc = "";
         _goalPoints = 0;
+        _goalTimes = 1;
+        _goalCount = 0;
      }
 
-    public void AddEntry(Goal entry)
+// //    public void AddEntry(Goal entry)
+//     {
+//         Goals.Add(entry);
+//     }
+    virtual public void CreateGoal()
     {
-        Goals.Add(entry);
-    }
-    public void CreateGoal()
-    {
-        Console.Clear();
+       // Console.Clear();
         Console.WriteLine("What is the name of your goal?");
         _goalName = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
@@ -48,23 +53,6 @@ abstract class Goal
         _goalPoints = Convert.ToInt16(Console.ReadLine());
 
     }
-    virtual public void ListGoals() { }
-    // public void SaveGoals( string filename)
-    // {
-    //     using (StreamWriter outputFile = new StreamWriter(filename))
-    //     {
-    //         foreach (Goal entry in Goals)
-    //         {
-    //             outputFile.WriteLine($"{entry._date.ToShortDateString()}|{entry._prompt}|{entry._response}");
-    //         }
-    //     }
-    // }
-    // public void LoadGoals()
-    // {
-    //     //Console.WriteLine("Well done!!");
-    //     Console.WriteLine("");
-    //     Console.WriteLine($"You have completed another {_durationInSeconds} seconds of the {_activityName} Activity");
-    // }
     public void RecordEvent()
     {
         var symbols = new List<string> {"5","4","3","2","1"};

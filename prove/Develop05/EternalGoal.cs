@@ -5,8 +5,8 @@ class EternalGoal: Goal
     // protected _length ; 
     // protected double _width; 
 
-    protected List<EternalGoal> _eternalGoals;
-    protected List<EternalGoal> EternalGoals { get { return _eternalGoals; } set => _eternalGoals = value;} 
+    // protected List<EternalGoal> _eternalGoals;
+    // protected List<EternalGoal> EternalGoals { get { return _eternalGoals; } set => _eternalGoals = value;} 
     public EternalGoal(string goalType, string goalName, string goalDesc, int goalPoints): base (goalType,goalName,goalDesc,goalPoints)
     {
         _goalType = goalType;
@@ -22,8 +22,8 @@ class EternalGoal: Goal
         _goalPoints = 0;
      }
 
-     public List<EternalGoal> GetGoals()
-     {
-        return _eternalGoals;
-     }
+    //  public List<EternalGoal> GetGoals()
+    //  {
+    //     return _eternalGoals;
+    //  }
 }

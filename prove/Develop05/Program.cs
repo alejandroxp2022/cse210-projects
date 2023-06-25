@@ -6,12 +6,13 @@ class Program
     {
         string _tecla;
         //string _tecla2;
-        GoalManager goalManager = new GoalManager();
-        SimpleGoal simpleGoal = new SimpleGoal();
-        EternalGoal eternalGoal = new EternalGoal();
-        ChecklistGoal checklistGoal = new ChecklistGoal();
+         GoalManager goalManager = new GoalManager();
+        // SimpleGoal simpleGoal = new SimpleGoal();
+        // EternalGoal eternalGoal = new EternalGoal();
+        // ChecklistGoal checklistGoal = new ChecklistGoal();
         do {
-            Console.Clear();
+            //Console.Clear();
+            Console.WriteLine("");
             Console.WriteLine($"You have {goalManager._totalPoints} points");
             Console.WriteLine("");
             Console.WriteLine("Menu Options:");
@@ -26,13 +27,16 @@ class Program
             switch (_tecla)
             {
                 case "1": 
-                    goalManager.CreateGoalMenu(simpleGoal,eternalGoal,checklistGoal);
+                    //goalManager.CreateGoalMenu(simpleGoal,eternalGoal,checklistGoal);
+                    goalManager.CreateGoalMenu();
                     break;
                 case "2":
-                    goalManager.ListAllGoals(simpleGoal,eternalGoal,checklistGoal);
+                    //goalManager.ListAllGoals(simpleGoal,eternalGoal,checklistGoal);
+                    goalManager.ListAllGoals();
                     break;
                 case "3":
-                    goalManager.SaveAllGoals(simpleGoal,eternalGoal,checklistGoal);
+                    //goalManager.SaveAllGoals(simpleGoal,eternalGoal,checklistGoal);
+                    goalManager.SaveAllGoals();
                     break;
                 case "4":
                     goalManager.LoadGoals();
