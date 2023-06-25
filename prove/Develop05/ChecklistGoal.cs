@@ -37,8 +37,13 @@ class ChecklistGoal: Goal
         Console.WriteLine("What is the amount of points associated with this goal?");
         _goalBonus = Convert.ToInt16(Console.ReadLine());
     }
-    //  public List<ChecklistGoal> GetGoals()
-    //  {
-    //     return _checklistGoals;
-    //  }
+     public void setChecked(int goalTimes, int goalCount) { 
+        if (goalCount >= goalTimes)
+        {
+            _goalCheck = true; 
+        }
+     }
+    public void setCount(int goalCount){
+        _goalCount = goalCount;
+    }
 }

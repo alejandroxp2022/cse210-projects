@@ -21,6 +21,7 @@ class GoalManager
                     Console.WriteLine("     1. Simple Goal");
                     Console.WriteLine("     2. Eternal Goal");
                     Console.WriteLine("     3. Checklist Goal");
+                    Console.WriteLine("     4. Negative Events");
                     Console.WriteLine("Which type of goal would you like to create?");
                     _tecla2  = Console.ReadLine();
                     switch (_tecla2)
@@ -40,6 +41,12 @@ class GoalManager
                             checklistGoal.CreateGoal();
                             ChecklistGoals.Add(checklistGoal);
                             break;
+                        case "4":
+                            SimpleGoal negativeEvent = new SimpleGoal();
+                            negativeEvent.CreateGoal();
+                            negativeEvent.setPoints(negativeEvent.getPoints()*-1);
+                            SimpleGoals.Add(negativeEvent);
+                            break;
                         default:
                             Console.WriteLine("Please select the right option.");
                         break;
@@ -52,38 +59,38 @@ class GoalManager
         int internal_counter = -1 ;
         foreach ( SimpleGoal goal in SimpleGoals)
         {
-            counter++;
-            internal_counter++;
-            Console.WriteLine($"{counter}.- {goal.getName()}");
-            GoalNames.Add($"{counter}|{internal_counter}|SimpleGoal|{goal.getName()}");
+            if(goal != null)
+            {
+                counter++;
+                internal_counter++;
+                string value = $"{counter.ToString()}.- {goal.getName()}";
+                Console.WriteLine(value);
+                GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|SimpleGoal|{goal.getName()} ");
+            }
         }
         internal_counter = -1 ;
         foreach ( EternalGoal goal in EternalGoals)
         {
+            if(goal != null)
+            {
             counter++;
             internal_counter++;
-            Console.WriteLine($"{counter}.- {goal.getName()}");
-            GoalNames.Add($"{counter}|{internal_counter}|EternalGoal|{goal.getName()}");
+            Console.WriteLine($"{counter.ToString()}.- {goal.getName()}");
+            GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EternalGoal|{goal.getName()}");
+            }
         }
         internal_counter = -1 ;
         foreach ( ChecklistGoal goal in ChecklistGoals)
         {
+            if(goal != null)
+            {
             counter++;
             internal_counter++;
-            Console.WriteLine($"{counter}.- {goal.getName()}");
-            GoalNames.Add($"{counter}|{internal_counter}|ChecklistGoal|{goal.getName()}");
+            Console.WriteLine($"{counter.ToString()}.- {goal.getName()}");
+            GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|ChecklistGoal|{goal.getName()}");
+            }
         }
     }
-    //  override public void ListGoals()
-    //  {
-    //     int counter = 0 ;
-    //     foreach ( SimpleGoal goal in SimpleGoals)
-    //     {
-    //         counter++;
-    //         Console.WriteLine($"{counter}.- [{_goalCheck}] {goal} ({goal})");
-    //     }
-    
-    //public void ListAllGoals(SimpleGoal simpleGoal, EternalGoal eternalGoal, ChecklistGoal checklistGoal)
     public void ListAllGoals()
     {
         Console.WriteLine("The goals are:");
@@ -188,14 +195,21 @@ class GoalManager
                 if( parts[2] == "SimpleGoal")
                 {
                     _pointsEarned = SimpleGoals[Convert.ToInt16(parts[1])].getPoints(); 
+                   SimpleGoals[Convert.ToInt16(parts[1])].setChecked();
+                    
                 }
                 if( parts[2] == "EternalGoal")
                 {
                     _pointsEarned = EternalGoals[Convert.ToInt16(parts[1])].getPoints(); 
                 }
-                if( parts[2] == "CheckllistGoal")
+                if( parts[2] == "ChecklistGoal")
                 {
                     _pointsEarned = ChecklistGoals[Convert.ToInt16(parts[1])].getPoints(); 
+                    int _goalTimes =ChecklistGoals[Convert.ToInt16(parts[1])].getTimes();  
+                    int _goalCount =ChecklistGoals[Convert.ToInt16(parts[1])].getCount();  
+                    _goalCount++;
+                    ChecklistGoals[Convert.ToInt16(parts[1])].setCount(_goalCount);   
+                    ChecklistGoals[Convert.ToInt16(parts[1])].setChecked(_goalTimes, _goalCount);
                 }
              }
         }

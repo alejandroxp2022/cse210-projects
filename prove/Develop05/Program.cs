@@ -5,11 +5,7 @@ class Program
     static void Main(string[] args)
     {
         string _tecla;
-        //string _tecla2;
          GoalManager goalManager = new GoalManager();
-        // SimpleGoal simpleGoal = new SimpleGoal();
-        // EternalGoal eternalGoal = new EternalGoal();
-        // ChecklistGoal checklistGoal = new ChecklistGoal();
         do {
             //Console.Clear();
             Console.WriteLine("");

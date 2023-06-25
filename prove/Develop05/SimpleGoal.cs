@@ -8,6 +8,8 @@ class SimpleGoal: Goal
 
     protected bool _goalCheck;
      public bool getStatus() { return _goalCheck; }
+     public void setChecked() { _goalCheck = true; }
+     public void setPoints(int goalPoints) { _goalPoints = goalPoints; }
     public SimpleGoal(string goalType, string goalName, string goalDesc, int goalPoints, bool goalStatus): base (goalType,goalName,goalDesc,goalPoints)
     { 
         _goalType = goalType;
@@ -24,23 +26,6 @@ class SimpleGoal: Goal
         _goalPoints = 0;
         _goalCheck = false;
      }
-
-    //  public List<SimpleGoal> GetGoals()
-    //  {
-    //     return _simpleGoals;
-    //  }
-
-
-    //  override public void ListGoals()
-    //  {
-    //     int counter = 0 ;
-    //     foreach ( SimpleGoal goal in _simpleGoals)
-    //     {
-    //         counter++;
-    //         Console.WriteLine($"{counter}.- [{_goalCheck}] {goal} ({goal})");
-    //     }
-    // }
-
 
 
 }
