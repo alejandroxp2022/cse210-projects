@@ -7,9 +7,25 @@ class Program
         string _tecla;
          PowerPlantManager powerPlantManager = new PowerPlantManager();
         do {
-            //Console.Clear();
-            Console.WriteLine("Status");
-            Console.WriteLine($"You have {powerPlantManager._totalPoints} points");
+            while (!Console.KeyAvailable) {
+                Console.Clear();
+                System.Threading.Thread.Sleep(500);
+                DateTime currentDateTime = DateTime.Now;
+                Console.WriteLine("Current date and time: " + currentDateTime);
+                Console.WriteLine($"");
+                Console.WriteLine("Power Plant Live Status:");
+                Console.WriteLine($"Battery Status: ");
+                Console.WriteLine($"DustIQ Status: ");
+                Console.WriteLine($"Inverter Status: ");
+                Console.WriteLine($"Pyranometer Status: ");
+                Console.WriteLine($"Recloser Status: ");
+                Console.WriteLine($"Solar Panel Status: ");
+                Console.WriteLine($"Tracker Status: ");
+                Console.WriteLine($"Power Plant Status: ");
+                Console.WriteLine($"");
+                Console.WriteLine($"Press Any Key to go to Menu");
+                System.Threading.Thread.Sleep(3000);
+            } 
             Console.WriteLine("");
             Console.WriteLine("Menu Options:");
             Console.WriteLine("     1. Create New Entity");
@@ -38,7 +54,7 @@ class Program
                     powerPlantManager.LoadGoals();
                     break;
                 case "5":
-                    powerPlantManager.RecordEvent();
+                    //powerPlantManager.RecordEvent();
                     break;
                 case "6":
                     Console.WriteLine("Good Bye.");

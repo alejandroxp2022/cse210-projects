@@ -1,6 +1,6 @@
 using System;
 
-abstract class Inverter: EnergyTransformer
+class Inverter: EnergyTransformer
 {
     //fields
     //protected List<Entity> _entitys;
@@ -42,7 +42,7 @@ abstract class Inverter: EnergyTransformer
 //     {
 //         Entitys.Add(entry);
 //     }
-    virtual public void CreateEntity()
+   override public void CreateEnergyTransformer()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your entity?");

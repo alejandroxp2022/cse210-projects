@@ -55,7 +55,7 @@ abstract class EnergyGenerator: EnergyEntity
    {
       return _entityStatus; 
    }
-    virtual public void CreateEntityGenerator()
+   virtual public void CreateEntityGenerator()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your entity?");

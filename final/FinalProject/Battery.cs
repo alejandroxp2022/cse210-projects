@@ -1,6 +1,6 @@
 using System;
 
-abstract class Battery: EnergyStore
+class Battery: EnergyStore
 {
     //fields
 
@@ -22,7 +22,7 @@ abstract class Battery: EnergyStore
         _ModbusParams = "";
      }
 
-    override public void CreateEntity()
+    override public void CreateEnergyStore()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your entity?");

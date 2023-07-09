@@ -6,7 +6,7 @@ class PowerPlantManager
     protected List<EnergyGenerator> EnergyGenerators = new List<EnergyGenerator>();
     protected List<EnergyTransformer> EnergyTransformers = new List<EnergyTransformer>();
     protected List<EnergyTransmit> EnergyTransmits = new List<EnergyTransmit>();
-    protected List<string> GoalNames = new List<string>();
+    protected List<EnergyStore> EnergyStores = new List<EnergyStore>();
     protected string _filename;
     private string _separator = "|";
     public int _totalPoints;
@@ -14,35 +14,38 @@ class PowerPlantManager
     public void CreatePowerPlant()
     {
         string _tecla2;
-        Console.WriteLine("The types of Goals are:");
-                    Console.WriteLine("     1. Simple Goal");
-                    Console.WriteLine("     2. Eternal Goal");
-                    Console.WriteLine("     3. Checklist Goal");
-                    Console.WriteLine("     4. Negative Events");
-                    Console.WriteLine("Which type of goal would you like to create?");
+        Console.WriteLine("The types of Energy Entity are:");
+                    Console.WriteLine("     1. Tracker");
+                    Console.WriteLine("     2. Solar Panel");
+                    Console.WriteLine("     3. Inverter");
+                    Console.WriteLine("     4. Battery");
+                    Console.WriteLine("     5. Recloser");
+                    Console.WriteLine("     6. Wind Station");
+                    Console.WriteLine("     7. Pyranometer");
+                    Console.WriteLine("     8. DustIQ");
+                    Console.WriteLine("Which type of device would you like to create?");
                     _tecla2  = Console.ReadLine();
                     switch (_tecla2)
                     {
                         case "1":
-                            EnergyGenerator energyGenerator = new EnergyGenerator();
-                            energyGenerator.CreateEntity();
-                            EnergyGenerators.Add(energyGenerator);
+                            Tracker tracker = new Tracker();
+                            tracker.CreateEntityGenerator();
+                            EnergyGenerators.Add(tracker);
                             break;
                         case "2":
-                            EnergyTransformer energyTransformer = new EnergyTransformer();
-                            energyTransformer.CreateEntity();
-                            EnergyTransformers.Add(energyTransformer);
+                            SolarPanel solarPanel = new SolarPanel();
+                            solarPanel.CreateEntityGenerator();
+                            EnergyGenerators.Add(solarPanel);
                             break;
                         case "3":
-                            EnergyTransmit energyTransmit = new EnergyTransmit();
-                            energyTransmit.CreateEntity();
-                            EnergyTransmits.Add(energyTransmit);
+                            Inverter inveter1 = new Inverter();
+                            inveter1.CreateEnergyTransformer();
+                            EnergyTransformers.Add(inveter1);
                             break;
                         case "4":
-                            EnergyGenerator negativeEvent = new EnergyGenerator();
-                            negativeEvent.CreateEntity();
-                            negativeEvent.setPoints(negativeEvent.getPoints()*-1);
-                            EnergyGenerators.Add(negativeEvent);
+                            Battery battery1 = new Battery();
+                            battery1.CreateEnergyStore();
+                            EnergyStores.Add(battery1);
                             break;
                         default:
                             Console.WriteLine("Please select the right option.");
@@ -51,93 +54,93 @@ class PowerPlantManager
     }
    public void ListNames()
     {
-        Console.WriteLine("The goals are:");
+        Console.WriteLine("The entitys are:");
         int counter = 0 ;
         int internal_counter = -1 ;
-        foreach ( EnergyGenerator goal in EnergyGenerators)
+        foreach ( EnergyGenerator entity in EnergyGenerators)
         {
-            if(goal != null)
+            if(entity != null)
             {
                 counter++;
                 internal_counter++;
-                string value = $"{counter.ToString()}.- {goal.getName()}";
+                string value = $"{counter.ToString()}.- {entity.getName()}";
                 Console.WriteLine(value);
-                GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyGenerator|{goal.getName()} ");
+            //    GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyGenerator|{entity.getName()} ");
             }
         }
         internal_counter = -1 ;
-        foreach ( EnergyTransformer goal in EnergyTransformers)
+        foreach ( EnergyTransformer entity in EnergyTransformers)
         {
-            if(goal != null)
+            if(entity != null)
             {
             counter++;
             internal_counter++;
-            Console.WriteLine($"{counter.ToString()}.- {goal.getName()}");
-            GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransformer|{goal.getName()}");
+            Console.WriteLine($"{counter.ToString()}.- {entity.getName()}");
+         //   GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransformer|{entity.getName()}");
             }
         }
         internal_counter = -1 ;
-        foreach ( EnergyTransmit goal in EnergyTransmits)
+        foreach ( EnergyTransmit entity in EnergyTransmits)
         {
-            if(goal != null)
+            if(entity != null)
             {
             counter++;
             internal_counter++;
-            Console.WriteLine($"{counter.ToString()}.- {goal.getName()}");
-            GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransmit|{goal.getName()}");
+            Console.WriteLine($"{counter.ToString()}.- {entity.getName()}");
+        //    GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransmit|{entity.getName()}");
             }
         }
     }
     public void ListAllGoals()
     {
-        Console.WriteLine("The goals are:");
+        Console.WriteLine("The entitys are:");
         int counter = 0 ;
-        foreach ( EnergyGenerator goal in EnergyGenerators)
+        foreach ( EnergyGenerator entity in EnergyGenerators)
         {
             counter++;
                 string _checkS = " ";
-              //  if (goal.getStatus() == true) {
+              //  if (entity.getStatus() == true) {
               //      _checkS = "X";
                // }
                 
-                Console.WriteLine($"{counter}.- [{_checkS}] {goal.getName()} ({goal.getDesc()})");
+                Console.WriteLine($"{counter}.- [{_checkS}] {entity.getName()} ({entity.getDesc()})");
         }
-        foreach ( EnergyTransformer goal in EnergyTransformers)
+        foreach ( EnergyTransformer entity in EnergyTransformers)
         {
                  string _checkE = " ";
             counter++;
-            Console.WriteLine($"{counter}.- [{_checkE}] {goal.getName()} ({goal.getDesc()})");
+            Console.WriteLine($"{counter}.- [{_checkE}] {entity.getName()} ({entity.getDesc()})");
         }
-        foreach ( EnergyTransmit goal in EnergyTransmits)
+        foreach ( EnergyTransmit entity in EnergyTransmits)
         {
                   string _checkC = " ";
-             //   if (goal.getStatus() == true) {
+             //   if (entity.getStatus() == true) {
                //     _checkC = "X";
               //  }
            counter++;
-            Console.WriteLine($"{counter}.- [{_checkC}] {goal.getName()} ({goal.getDesc()})  -- Currently completed: {goal.getCount()}/{goal.getTimes()}");
+            Console.WriteLine($"{counter}.- [{_checkC}] {entity.getName()} ({entity.getDesc()})  -- Currently completed: {entity.getName()}/{entity.getName()}");
         }
     }
     public void SaveAllGoals()
     {
-        Console.WriteLine("What is the filename for the goal file?");
+        Console.WriteLine("What is the filename for the entity file?");
         _filename = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(_filename))
         {
             //total points first
             outputFile.WriteLine($"{_totalPoints}");
-            //now the goals by type
+            //now the entitys by type
             foreach (EnergyGenerator entry in EnergyGenerators)
             {
-                outputFile.WriteLine($"EnergyGenerator{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}{_separator}{entry.getStatus()}");
+                outputFile.WriteLine($"EnergyGenerator{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{_separator}{entry.getName()}");
             }
             foreach (EnergyTransformer entry in EnergyTransformers)
             {
-                outputFile.WriteLine($"EnergyTransformer{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}");
+                outputFile.WriteLine($"EnergyTransformer{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getName()}");
             }
             foreach (EnergyTransmit entry in EnergyTransmits)
             {
-                outputFile.WriteLine($"EnergyTransmit{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}{_separator}{entry.getBonus()}{_separator}{entry.getTimes()}{_separator}{entry.getCount()}");
+                outputFile.WriteLine($"EnergyTransmit{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}");
             }
           
         }
@@ -145,7 +148,7 @@ class PowerPlantManager
     public void LoadGoals()
  {
         // To not load entries repeatedly 
-        Console.WriteLine("What is the filename for the goal file?");
+        Console.WriteLine("What is the filename for the entity file?");
         _filename = Console.ReadLine();
         using (StreamReader inputFile = new StreamReader(_filename))
         {
@@ -155,63 +158,66 @@ class PowerPlantManager
                 string line = inputFile.ReadLine();
                 string[] parts = line.Split(new[] { "|" }, StringSplitOptions.None);
                 //string prompt = parts[1].Split(':')[0].Trim();
-                if ( parts[0] == "EnergyGenerator")
+                if ( parts[0] == "Battery")
                 {
-                    EnergyGenerator _energyGenerator = new EnergyGenerator(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToBoolean(parts[4].Trim()));
-                    EnergyGenerators.Add(_energyGenerator);
+                    //EnergyGenerator _energyGenerator = new EnergyGenerator(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToBoolean(parts[4].Trim()));
+                    Battery _battery = new Battery();
+                    EnergyStores.Add(_battery);
 
                 }
-                if ( parts[0] == "EnergyTransformer")
+                if ( parts[0] == "Tracker")
                 {
-                    EnergyTransformer _energyTransformer = new EnergyTransformer(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3].Trim()));
-                    EnergyTransformers.Add(_energyTransformer);
+                    //EnergyTransformer _energyTransformer = new EnergyTransformer(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3].Trim()));
+                    Tracker _tracker = new Tracker();
+                    EnergyGenerators.Add(_tracker);
                 }
-                if ( parts[0] == "EnergyTransmit")
+                if ( parts[0] == "Inverter")
                 {
-                    EnergyTransmit _energyTransmit = new EnergyTransmit(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToInt16(parts[4]),Convert.ToInt16(parts[5]),Convert.ToInt16(parts[6].Trim()));   
-                    EnergyTransmits.Add(_energyTransmit);
+                    //Inverter _inverter = new Inverter(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToInt16(parts[4]),Convert.ToInt16(parts[5]),Convert.ToInt16(parts[6].Trim()));   
+                    Inverter _inverter = new Inverter();
+                    EnergyTransformers.Add(_inverter);
 
                 }
                     
             }
         }
     }
-    public void RecordEvent()
-    {
-        ListNames();
-        Console.WriteLine("");
-        Console.WriteLine("Which goal did you accomplish?");
-        string _orderEvent = Console.ReadLine();
-        foreach ( string _goalName in GoalNames)
-        {
-             string[] parts = _goalName.Split(new[] { "|" }, StringSplitOptions.None);
-             //verifying count
-             if (_orderEvent == parts[0])
-             {
-                // getting type of event
-                if( parts[2] == "EnergyGenerator")
-                {
-                    _pointsEarned = EnergyGenerators[Convert.ToInt16(parts[1])].getPoints(); 
-                   EnergyGenerators[Convert.ToInt16(parts[1])].setChecked();
+    // public void RecordEvent()
+    // {
+    //     ListNames();
+    //     Console.WriteLine("");
+    //     Console.WriteLine("Which entity did you accomplish?");
+    //     string _orderEvent = Console.ReadLine();
+    //     foreach ( string _entityName in GoalNames)
+    //     {
+    //          string[] parts = _entityName.Split(new[] { "|" }, StringSplitOptions.None);
+    //          //verifying count
+    //          if (_orderEvent == parts[0])
+    //          {
+    //             // getting type of event
+    //             if( parts[2] == "EnergyGenerator")
+    //             {
+    //                 _pointsEarned = EnergyGenerators[Convert.ToInt16(parts[1])].getName(); 
+    //                EnergyGenerators[Convert.ToInt16(parts[1])].setChecked();
                     
-                }
-                if( parts[2] == "EnergyTransformer")
-                {
-                    _pointsEarned = EnergyTransformers[Convert.ToInt16(parts[1])].getPoints(); 
-                }
-                if( parts[2] == "EnergyTransmit")
-                {
-                    _pointsEarned = EnergyTransmits[Convert.ToInt16(parts[1])].getPoints(); 
-                    int _goalTimes =EnergyTransmits[Convert.ToInt16(parts[1])].getTimes();  
-                    int _goalCount =EnergyTransmits[Convert.ToInt16(parts[1])].getCount();  
-                    _goalCount++;
-                    EnergyTransmits[Convert.ToInt16(parts[1])].setCount(_goalCount);   
-                    EnergyTransmits[Convert.ToInt16(parts[1])].setChecked(_goalTimes, _goalCount);
-                }
-             }
-        }
-        _totalPoints += _pointsEarned;
-        Console.WriteLine($"Congratulations! You have earned {_pointsEarned} points!");
-        Console.WriteLine($"You now have {_totalPoints} points");
-    }
+    //             }
+    //             if( parts[2] == "EnergyTransformer")
+    //             {
+    //                 _pointsEarned = EnergyTransformers[Convert.ToInt16(parts[1])].getName(); 
+    //             }
+    //             if( parts[2] == "EnergyTransmit")
+    //             {
+    //                 _pointsEarned = EnergyTransmits[Convert.ToInt16(parts[1])].getName(); 
+    //                 int _entityTimes =EnergyTransmits[Convert.ToInt16(parts[1])].getTimes();  
+    //                 int _entityCount =EnergyTransmits[Convert.ToInt16(parts[1])].getCount();  
+    //                 _entityCount++;
+    //                 EnergyTransmits[Convert.ToInt16(parts[1])].setCount(_entityCount);   
+    //                 EnergyTransmits[Convert.ToInt16(parts[1])].setChecked(_entityTimes, _entityCount);
+    //             }
+    //          }
+    //     }
+    //     _totalPoints += _pointsEarned;
+    //     Console.WriteLine($"Congratulations! You have earned {_pointsEarned} points!");
+    //     Console.WriteLine($"You now have {_totalPoints} points");
+    // }
 } 

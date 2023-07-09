@@ -1,6 +1,6 @@
 using System;
 
-abstract class MeteoStation
+class MeteoStation
 {
     //fields
     protected string _meteoStationType;

@@ -1,6 +1,6 @@
 using System;
 
-abstract class Tracker
+class Tracker: EnergyGenerator
 {
     //fields
     //protected List<Tracker> _trackers;
@@ -42,7 +42,7 @@ abstract class Tracker
 //     {
 //         Trackers.Add(entry);
 //     }
-    virtual public void CreateTracker()
+    override public void CreateEntityGenerator()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your tracker?");

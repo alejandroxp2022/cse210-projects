@@ -1,6 +1,6 @@
 using System;
 
-abstract class SolarPanel: EnergyGenerator
+class SolarPanel: EnergyGenerator
 {
     //fields
     protected string _entityName;
@@ -56,7 +56,7 @@ abstract class SolarPanel: EnergyGenerator
    {
       return _entityStatus; 
    }
-    virtual public void CreateEntity()
+   override public void CreateEntityGenerator()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your entity?");

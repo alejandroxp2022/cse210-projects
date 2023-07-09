@@ -56,7 +56,7 @@ abstract class EnergyStore: EnergyEntity
    {
       return _entityStatus; 
    }
-    virtual public void CreateEntity()
+    virtual public void CreateEnergyStore()
     {
        // Console.Clear();
         Console.WriteLine("What is the name of your entity?");

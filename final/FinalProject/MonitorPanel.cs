@@ -5,10 +5,14 @@ class MonitorPanel
     //fields
     protected List<MonitorPanel> MonitorPanels = new List<MonitorPanel>();
     protected List<string> MonitorPanelNames = new List<string>();
+    protected string _deviceStatus;
+    protected string _deviceName;
     protected string _filename;
     private string _separator = "|";
     public int _totalPoints;
     public int _pointsEarned;
+     public string getName() { return _deviceName; }
+     public string getStatus() { return _deviceStatus; }
     public void CreateMonitorPanelMenu()
     {
         string _tecla2;
@@ -92,26 +96,26 @@ class MonitorPanel
         {
             counter++;
                 string _checkS = " ";
-                if (monitor.getStatus() == true) {
-                    _checkS = "X";
-                }
+                // if (monitor.getStatus() == true) {
+                //     _checkS = "X";
+                // }
                 
-                Console.WriteLine($"{counter}.- [{_checkS}] {monitor.getName()} ({monitor.getDesc()})");
+                Console.WriteLine($"{counter}.- [{_checkS}] {monitor.getName()} ({monitor.getName()})");
         }
         foreach ( MonitorPanel monitor in MonitorPanels)
         {
                  string _checkE = " ";
             counter++;
-            Console.WriteLine($"{counter}.- [{_checkE}] {monitor.getName()} ({monitor.getDesc()})");
+            Console.WriteLine($"{counter}.- [{_checkE}] {monitor.getName()} ({monitor.getStatus()})");
         }
         foreach ( MonitorPanel monitor in MonitorPanels)
         {
                   string _checkC = " ";
-                if (monitor.getStatus() == true) {
-                    _checkC = "X";
-                }
+                // if (monitor.getStatus() == true) {
+                //     _checkC = "X";
+                // }
            counter++;
-            Console.WriteLine($"{counter}.- [{_checkC}] {monitor.getName()} ({monitor.getDesc()})  -- Currently completed: {monitor.getCount()}/{monitor.getTimes()}");
+            Console.WriteLine($"{counter}.- [{_checkC}] {monitor.getName()} ({monitor.getName()})  -- Currently completed: {monitor.GetType()}/{monitor.getName()}");
         }
     }
     public void SaveAllMonitorPanels()
@@ -125,15 +129,15 @@ class MonitorPanel
             //now the monitors by type
             foreach (MonitorPanel entry in MonitorPanels)
             {
-                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}{_separator}{entry.getStatus()}");
+                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getStatus()}");
             }
             foreach (MonitorPanel entry in MonitorPanels)
             {
-                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}");
+                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}");
             }
             foreach (MonitorPanel entry in MonitorPanels)
             {
-                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getPoints()}{_separator}{entry.getBonus()}{_separator}{entry.getTimes()}{_separator}{entry.getCount()}");
+                outputFile.WriteLine($"MonitorPanel{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}");
             }
           
         }
@@ -153,18 +157,21 @@ class MonitorPanel
                 //string prompt = parts[1].Split(':')[0].Trim();
                 if ( parts[0] == "MonitorPanel")
                 {
-                    MonitorPanel _simpleMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToBoolean(parts[4].Trim()));
+                    //MonitorPanel _simpleMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToBoolean(parts[4].Trim()));
+                    MonitorPanel _simpleMonitorPanel = new MonitorPanel();
                     MonitorPanels.Add(_simpleMonitorPanel);
 
                 }
                 if ( parts[0] == "MonitorPanel")
                 {
-                    MonitorPanel _eternalMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3].Trim()));
+                    //MonitorPanel _eternalMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3].Trim()));
+                    MonitorPanel _eternalMonitorPanel = new MonitorPanel();
                     MonitorPanels.Add(_eternalMonitorPanel);
                 }
                 if ( parts[0] == "MonitorPanel")
                 {
-                    MonitorPanel _checklistMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToInt16(parts[4]),Convert.ToInt16(parts[5]),Convert.ToInt16(parts[6].Trim()));   
+                    //MonitorPanel _checklistMonitorPanel = new MonitorPanel(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToInt16(parts[4]),Convert.ToInt16(parts[5]),Convert.ToInt16(parts[6].Trim()));   
+                    MonitorPanel _checklistMonitorPanel = new MonitorPanel();
                     MonitorPanels.Add(_checklistMonitorPanel);
 
                 }
@@ -185,25 +192,25 @@ class MonitorPanel
              if (_orderEvent == parts[0])
              {
                 // getting type of event
-                if( parts[2] == "MonitorPanel")
-                {
-                    _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getPoints(); 
-                   MonitorPanels[Convert.ToInt16(parts[1])].setChecked();
+                // if( parts[2] == "MonitorPanel")
+                // {
+                //     _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getName(); 
+                //    MonitorPanels[Convert.ToInt16(parts[1])].setChecked();
                     
-                }
-                if( parts[2] == "MonitorPanel")
-                {
-                    _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getPoints(); 
-                }
-                if( parts[2] == "MonitorPanel")
-                {
-                    _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getPoints(); 
-                    int _monitorTimes =MonitorPanels[Convert.ToInt16(parts[1])].getTimes();  
-                    int _monitorCount =MonitorPanels[Convert.ToInt16(parts[1])].getCount();  
-                    _monitorCount++;
-                    MonitorPanels[Convert.ToInt16(parts[1])].setCount(_monitorCount);   
-                    MonitorPanels[Convert.ToInt16(parts[1])].setChecked(_monitorTimes, _monitorCount);
-                }
+                // }
+                // if( parts[2] == "MonitorPanel")
+                // {
+                //     _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getName(); 
+                // }
+                // if( parts[2] == "MonitorPanel")
+                // {
+                //     _pointsEarned = MonitorPanels[Convert.ToInt16(parts[1])].getName(); 
+                //     int _monitorTimes =MonitorPanels[Convert.ToInt16(parts[1])].getName();  
+                //     int _monitorCount =MonitorPanels[Convert.ToInt16(parts[1])].getName();  
+                //     _monitorCount++;
+                //     MonitorPanels[Convert.ToInt16(parts[1])].setCount(_monitorCount);   
+                //     MonitorPanels[Convert.ToInt16(parts[1])].setChecked(_monitorTimes, _monitorCount);
+                // }
              }
         }
         _totalPoints += _pointsEarned;

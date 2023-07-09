@@ -1,6 +1,6 @@
 using System;
 
-abstract class DustIQ: MeteoEntity
+class DustIQ: MeteoEntity
 {
     //fields
     protected string _deviceName;
