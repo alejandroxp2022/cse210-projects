@@ -5,13 +5,15 @@ class Program
     static void Main(string[] args)
     {
         string _tecla;
-         PowerPlantManager powerPlantManager = new PowerPlantManager();
+        PowerPlantManager powerPlantManager = new PowerPlantManager();
         do {
             while (!Console.KeyAvailable) {
                 Console.Clear();
                 System.Threading.Thread.Sleep(500);
                 DateTime currentDateTime = DateTime.Now;
                 Console.WriteLine("Current date and time: " + currentDateTime);
+                Console.WriteLine("MONITORING");
+                Console.WriteLine("==========");
                 Console.WriteLine($"");
                 Console.WriteLine("Power Plant Live Status:");
                 Console.WriteLine($"Battery Status: ");

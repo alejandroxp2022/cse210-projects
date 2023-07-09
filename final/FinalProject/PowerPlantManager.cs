@@ -10,7 +10,9 @@ class PowerPlantManager
     protected string _filename;
     private string _separator = "|";
     public int _totalPoints;
-    public int _pointsEarned;
+
+    public PowerPlantManager()
+    {}
     public void CreatePowerPlant()
     {
         string _tecla2;
