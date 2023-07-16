@@ -3,10 +3,8 @@ using System;
 class PowerPlantManager
 {
     //fields
-    protected List<EnergyGenerator> EnergyGenerators = new List<EnergyGenerator>();
-    protected List<EnergyTransformer> EnergyTransformers = new List<EnergyTransformer>();
-    protected List<EnergyTransmit> EnergyTransmits = new List<EnergyTransmit>();
-    protected List<EnergyStore> EnergyStores = new List<EnergyStore>();
+
+    List<EnergyDevice> Devices = new List<EnergyDevice>();
     protected string _filename;
     private string _separator = "|";
     public int _totalPoints;
@@ -18,36 +16,44 @@ class PowerPlantManager
         string _tecla2;
         Console.WriteLine("The types of Energy Entity are:");
                     Console.WriteLine("     1. Tracker");
-                    Console.WriteLine("     2. Solar Panel");
-                    Console.WriteLine("     3. Inverter");
-                    Console.WriteLine("     4. Battery");
-                    Console.WriteLine("     5. Recloser");
-                    Console.WriteLine("     6. Wind Station");
-                    Console.WriteLine("     7. Pyranometer");
-                    Console.WriteLine("     8. DustIQ");
+                    Console.WriteLine("     2. Inverter");
+                    Console.WriteLine("     3. Battery");
+                    Console.WriteLine("     4. Recloser");
+                    Console.WriteLine("     5. Meteorological Station");
+                    Console.WriteLine("     6. Pyranometer");
                     Console.WriteLine("Which type of device would you like to create?");
                     _tecla2  = Console.ReadLine();
                     switch (_tecla2)
                     {
                         case "1":
                             Tracker tracker = new Tracker();
-                            tracker.CreateEntityGenerator();
-                            EnergyGenerators.Add(tracker);
+                            tracker.CreateDevice();
+                            Devices.Add(tracker);
                             break;
                         case "2":
-                            SolarPanel solarPanel = new SolarPanel();
-                            solarPanel.CreateEntityGenerator();
-                            EnergyGenerators.Add(solarPanel);
+                            Inverter inverter = new Inverter();
+                            inverter.CreateDevice();
+                            Devices.Add(inverter);
                             break;
                         case "3":
-                            Inverter inveter1 = new Inverter();
-                            inveter1.CreateEnergyTransformer();
-                            EnergyTransformers.Add(inveter1);
+                            Battery battery = new Battery();
+                            battery.CreateDevice();
+                            Devices.Add(battery);
                             break;
                         case "4":
-                            Battery battery1 = new Battery();
-                            battery1.CreateEnergyStore();
-                            EnergyStores.Add(battery1);
+                            Recloser reco = new Recloser();
+                            reco.CreateDevice();
+                            Devices.Add(reco);
+                            break;
+                        case "5":
+                            MeteoStation meteoStation = new MeteoStation();
+                            meteoStation.CreateDevice();
+                            Devices.Add(meteoStation);
+                            break;
+                        case "6":
+                            Pyranometer pyranometer = new Pyranometer();
+                            pyranometer.CreateDevice();
+                            Devices.Add(pyranometer);
                             break;
                         default:
                             Console.WriteLine("Please select the right option.");
@@ -59,19 +65,19 @@ class PowerPlantManager
         Console.WriteLine("The entitys are:");
         int counter = 0 ;
         int internal_counter = -1 ;
-        foreach ( EnergyGenerator entity in EnergyGenerators)
+        foreach ( EnergyDevice device in Devices)
         {
-            if(entity != null)
+            if(device != null)
             {
                 counter++;
                 internal_counter++;
-                string value = $"{counter.ToString()}.- {entity.getName()}";
+                string value = $"{counter.ToString()}.- {device.getName()}";
                 Console.WriteLine(value);
             //    GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyGenerator|{entity.getName()} ");
             }
         }
         internal_counter = -1 ;
-        foreach ( EnergyTransformer entity in EnergyTransformers)
+        /**foreach ( EnergyTransformer entity in EnergyTransformers)
         {
             if(entity != null)
             {
@@ -91,59 +97,27 @@ class PowerPlantManager
             Console.WriteLine($"{counter.ToString()}.- {entity.getName()}");
         //    GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransmit|{entity.getName()}");
             }
-        }
+        } **/
     }
-    public void ListAllGoals()
-    {
-        Console.WriteLine("The entitys are:");
-        int counter = 0 ;
-        foreach ( EnergyGenerator entity in EnergyGenerators)
-        {
-            counter++;
-                string _checkS = " ";
-              //  if (entity.getStatus() == true) {
-              //      _checkS = "X";
-               // }
-                
-                Console.WriteLine($"{counter}.- [{_checkS}] {entity.getName()} ({entity.getDesc()})");
-        }
-        foreach ( EnergyTransformer entity in EnergyTransformers)
-        {
-                 string _checkE = " ";
-            counter++;
-            Console.WriteLine($"{counter}.- [{_checkE}] {entity.getName()} ({entity.getDesc()})");
-        }
-        foreach ( EnergyTransmit entity in EnergyTransmits)
-        {
-                  string _checkC = " ";
-             //   if (entity.getStatus() == true) {
-               //     _checkC = "X";
-              //  }
-           counter++;
-            Console.WriteLine($"{counter}.- [{_checkC}] {entity.getName()} ({entity.getDesc()})  -- Currently completed: {entity.getName()}/{entity.getName()}");
-        }
-    }
-    public void SaveAllGoals()
+    public void SaveAllDevices()
     {
         Console.WriteLine("What is the filename for the entity file?");
         _filename = Console.ReadLine();
         using (StreamWriter outputFile = new StreamWriter(_filename))
         {
-            //total points first
-            outputFile.WriteLine($"{_totalPoints}");
             //now the entitys by type
-            foreach (EnergyGenerator entry in EnergyGenerators)
+            foreach (EnergyDevice device in Devices)
             {
-                outputFile.WriteLine($"EnergyGenerator{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{_separator}{entry.getName()}");
+                outputFile.WriteLine($"EnergyGenerator{_separator}{device.getName()}{_separator}{device.getDesc()}{_separator}{_separator}{device.getName()}");
             }
-            foreach (EnergyTransformer entry in EnergyTransformers)
+            /**foreach (EnergyTransformer device in EnergyTransformers)
             {
-                outputFile.WriteLine($"EnergyTransformer{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getName()}");
+                outputFile.WriteLine($"EnergyTransformer{_separator}{device.getName()}{_separator}{device.getDesc()}{_separator}{device.getName()}");
             }
-            foreach (EnergyTransmit entry in EnergyTransmits)
+            foreach (EnergyTransmit device in EnergyTransmits)
             {
-                outputFile.WriteLine($"EnergyTransmit{_separator}{entry.getName()}{_separator}{entry.getDesc()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}{_separator}{entry.getName()}");
-            }
+                outputFile.WriteLine($"EnergyTransmit{_separator}{device.getName()}{_separator}{device.getDesc()}{_separator}{device.getName()}{_separator}{device.getName()}{_separator}{device.getName()}{_separator}{device.getName()}");
+            } **/
           
         }
     }
