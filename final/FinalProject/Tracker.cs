@@ -25,7 +25,7 @@ class Tracker: EnergyDevice
         _current_position = float.Parse(Console.ReadLine());
         Console.WriteLine("What is the target Position? [-60, 60] degrees");
         _target_position = float.Parse(Console.ReadLine());
-        Console.WriteLine("What is the Operation Mode?");
+        Console.WriteLine("What is the Operation Mode? [AUTO, MANUAL, SECURITY]");
         _operation_mode = Console.ReadLine();
 
     }

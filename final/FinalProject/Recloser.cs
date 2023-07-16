@@ -3,68 +3,28 @@ using System;
 class Recloser: EnergyDevice
 {
     //fields
-    protected string _entityName;
-    protected string _entityStatus;
-    protected string _entityDescription;
-    protected string _entityType;
-    protected string _voltage_curr;
-    protected float _power_nom;
-    protected int _current_curr;
-    protected string _IPaddress;
-    protected string _ModbusParams;
-     public string getName() { return _entityName; }
-     public string getType() { return _entityType; }
-     public string getDesc() { return _entityDescription; }
-     public int getcurrCurr() { return _current_curr; }
-     public float getPowerNom() { return _power_nom; }
-
+   public float _freq_inverter;
+   public float _freq_line;
+   public string _operation_mode;
      // Constructors
-    public Recloser(string entityType, string entityName, string entityDesc, string IPaddress, string ModbusParams )
+    public Recloser(string type, string name, string desc, string IPaddress, string modbusParams  ): base (type, name,desc, IPaddress, modbusParams )
      {
-        _entityType = entityType;
-        _entityName = entityName;
-        _entityDescription = entityDesc;
-        _IPaddress = IPaddress;
-        _ModbusParams = ModbusParams;
+        _freq_inverter = 50;
      }
     public Recloser()
      {
-        _entityType = "";
-        _entityName = "";
-        _entityDescription = "";
-        _IPaddress = "";
-        _ModbusParams = "";
+        _freq_inverter = 50;
      }
-
-   public string getAttributeFromString( string StreamValues, string Parser)
-   {
-      return StreamValues;
-   }
-   public void setOperation( string StreamConnection, string Parser, string Value)
-   {
-      ;
-   }
-   public void setValue( string StreamConnection, string Parser, string Value)
-   {
-      ;
-   }
-   public void setStatus( string StreamConnection, string Parser, string Value)
-   {
-      ;
-   }
-   public string getStatus( string StreamConnection, string deviceId )
-   {
-      return _entityStatus; 
-   }
-    virtual public void CreateEntity()
+  // POLYMORPHISM
+    override public void ExtraParams() 
     {
        // Console.Clear();
-        Console.WriteLine("What is the name of your entity?");
-        _entityName = Console.ReadLine();
-        Console.WriteLine("What is a short despcription of it?");
-        _entityDescription = Console.ReadLine();
-        Console.WriteLine("What is the IP address");
-        _IPaddress = Console.ReadLine();
+        Console.WriteLine("What is the current Frequency from Inverter? [49.1 - 50.9] Hz");
+        _freq_inverter = float.Parse(Console.ReadLine());
+        Console.WriteLine("What is thecurrent Frequency from Distributor? [49.1 - 50.9] Hz"); 
+        _freq_line = float.Parse(Console.ReadLine());
+        Console.WriteLine("What is the Operation Mode? [ OPEN, CLOSED]");
+        _operation_mode = Console.ReadLine();
 
     }
 } 
