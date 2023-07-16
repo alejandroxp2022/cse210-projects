@@ -18,16 +18,17 @@ class Program
                 System.Threading.Thread.Sleep(300);
                 DateTime currentDateTime = DateTime.Now;
                 Console.WriteLine("Current date and time: " + currentDateTime);
-                Console.WriteLine("MONITORING");
-                Console.WriteLine("==========");
                 Console.WriteLine($"");
+                Console.WriteLine("MONITORING");
+                Console.WriteLine("================================");
                 Console.WriteLine("Power Plant Live Status:");
-                Console.WriteLine($"Tracker Status: Name: {tracker.getName()} - {tracker.getStatus()} - {tracker.getDesc()} - IP:{tracker.getIP()}");
-                Console.WriteLine($"Inverter Status: Name: {inverter.getName()} - {inverter.getStatus()} - {inverter.getDesc()} - IP:{inverter.getIP()}");
-                Console.WriteLine($"Battery Status: Name: {battery.getName()} - {battery.getStatus()} - {battery.getDesc()} - IP:{battery.getIP()}");
-                Console.WriteLine($"Recloser Status: Name: {reco.getName()} - {reco.getStatus()} - {reco.getDesc()} - IP:{reco.getIP()}");
-                Console.WriteLine($"Meteo Station Status: Name: {meteoStation.getName()} - {meteoStation.getStatus()} - {meteoStation.getDesc()} - IP:{meteoStation.getIP()}");
-                Console.WriteLine($"Pyranometer Status: Name: {pyranometer.getName()} - {pyranometer.getStatus()} - {pyranometer.getDesc()} - IP:{pyranometer.getIP()}");
+                Console.WriteLine("--------------------------------");
+                Console.WriteLine("Name - Status - Description - IP");
+                Console.WriteLine("--------------------------------");
+                foreach( EnergyDevice device in powerPlantManager.Devices)
+                {
+                    Console.WriteLine($"{device.getName()} Status: {device.getStatus()} - {device.getDesc()} - IP:{device.getIP()}");
+                }
                 Console.WriteLine($"");
                 Console.WriteLine($"Press Space Bar twice to access the Menu");
                 System.Threading.Thread.Sleep(3000);
@@ -38,7 +39,7 @@ class Program
             Console.WriteLine("     2. List Devices");
             Console.WriteLine("     3. Save Power Plant Image");
             Console.WriteLine("     4. Load Power Plant Image");
-            Console.WriteLine("     5. Record Events");
+          //  Console.WriteLine("     5. Record Events");
             Console.WriteLine("     6. Quit");
             Console.Write("Select a choice from the menu: ");
             _tecla  = Console.ReadLine().Trim();
@@ -54,7 +55,7 @@ class Program
                     powerPlantManager.SaveAllDevices();
                     break;
                 case "4":
-                    powerPlantManager.LoadGoals();
+                    powerPlantManager.LoadDevices();
                     break;
                 case "5":
                     break;

@@ -1,1 +1,3 @@
-tracker.|tracker1|tracker in the north|ON|127.0.0.1
+tracker|Tracker1|Tracker north|ON|127.0.0.1
+inverter|inv2|asdf|on|123.4.4.5
+battery|Battery2|asfd|FAILED|123.1.1.1

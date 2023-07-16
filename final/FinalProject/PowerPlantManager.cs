@@ -4,10 +4,9 @@ class PowerPlantManager
 {
     //fields
 
-    List<EnergyDevice> Devices = new List<EnergyDevice>();
+    public List<EnergyDevice> Devices = new List<EnergyDevice>();
     protected string _filename;
     private string _separator = "|";
-    public int _totalPoints;
 
     public PowerPlantManager()
     {
@@ -85,6 +84,8 @@ class PowerPlantManager
             }
         }
         internal_counter = -1 ;
+        Console.WriteLine("Press Enter to continue.");
+        Console.ReadLine();
         /**foreach ( EnergyTransformer entity in EnergyTransformers)
         {
             if(entity != null)
@@ -133,7 +134,7 @@ class PowerPlantManager
           
         }
     }
-    public void LoadGoals()
+    public void LoadDevices()
  {
         // To not load entries repeatedly 
         Console.WriteLine("What is the filename for the entity file?");
