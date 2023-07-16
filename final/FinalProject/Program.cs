@@ -22,11 +22,12 @@ class Program
                 Console.WriteLine("==========");
                 Console.WriteLine($"");
                 Console.WriteLine("Power Plant Live Status:");
-                Console.WriteLine($"Battery Status: {battery.getStatus()} - {battery.getDesc()} - IP:{battery.getIP()}");
-                Console.WriteLine($"Inverter Status: {inverter.getStatus()} - {inverter.getDesc()} - IP:{inverter.getIP()}");
-                Console.WriteLine($"Pyranometer Status: {pyranometer.getStatus()} - {pyranometer.getDesc()} - IP:{pyranometer.getIP()}");
-                Console.WriteLine($"Recloser Status: {reco.getStatus()} - {reco.getDesc()} - IP:{reco.getIP()}");
-                Console.WriteLine($"Tracker Status: {tracker.getStatus()} - {tracker.getDesc()} - IP:{tracker.getIP()}");
+                Console.WriteLine($"Tracker Status: Name: {tracker.getName()} - {tracker.getStatus()} - {tracker.getDesc()} - IP:{tracker.getIP()}");
+                Console.WriteLine($"Inverter Status: Name: {inverter.getName()} - {inverter.getStatus()} - {inverter.getDesc()} - IP:{inverter.getIP()}");
+                Console.WriteLine($"Battery Status: Name: {battery.getName()} - {battery.getStatus()} - {battery.getDesc()} - IP:{battery.getIP()}");
+                Console.WriteLine($"Recloser Status: Name: {reco.getName()} - {reco.getStatus()} - {reco.getDesc()} - IP:{reco.getIP()}");
+                Console.WriteLine($"Meteo Station Status: Name: {meteoStation.getName()} - {meteoStation.getStatus()} - {meteoStation.getDesc()} - IP:{meteoStation.getIP()}");
+                Console.WriteLine($"Pyranometer Status: Name: {pyranometer.getName()} - {pyranometer.getStatus()} - {pyranometer.getDesc()} - IP:{pyranometer.getIP()}");
                 Console.WriteLine($"");
                 Console.WriteLine($"Press Space Bar twice to access the Menu");
                 System.Threading.Thread.Sleep(3000);

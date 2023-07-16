@@ -8,9 +8,9 @@ abstract class EnergyDevice
     protected string _status;
     protected string _description;
     protected string _type;
-    protected string _voltage_curr;
-    protected float _power_nom;
-    protected int _current_curr;
+    protected int _voltage_curr = 110;
+    protected float _power_nom = 0;
+    protected int _current_curr = 10;
     protected string _IPaddress;
     protected string _modbusParams;
     public string getName() { return _name; }
