@@ -61,13 +61,13 @@ abstract class EnergyDevice
    // INHERITANCE AND POLYMOFPHISM
    public void CreateDevice()
    {
-       // Console.Clear();
         Console.WriteLine("What is the name of your ?");
         _name = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
         _description = Console.ReadLine();
         Console.WriteLine("What is the IP address");
         _IPaddress = Console.ReadLine();
+        this.ExtraParams();
 
    }
    virtual public void ExtraParams()

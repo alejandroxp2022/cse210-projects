@@ -7,14 +7,17 @@ class Tracker: EnergyDevice
    public float _current_position; 
 
    public string _operation_mode;
-    public Tracker(string type, string name, string desc, string IPaddress, string modbusParams  ): base (type, name,desc, IPaddress, modbusParams )
+    public Tracker(string type, string name, string desc, string IPaddress, string modbusParams, float tar_pos, float curr_pos, string oper_mode  ): base (type, name,desc, IPaddress, modbusParams )
      {
-        _target_position = 0;
-        _current_position = 0;
-        _operation_mode = "AUTO";
+        _target_position = tar_pos;
+        _current_position = curr_pos;
+        _operation_mode = oper_mode;
      }
     public Tracker()
      {
+        _target_position = 0;
+        _current_position = 0;
+        _operation_mode = "SECURITY";
      }
 
    // POLYMORPHISM
