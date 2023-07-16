@@ -9,7 +9,7 @@ class Program
         do {
             while (!Console.KeyAvailable) {
                 Console.Clear();
-                System.Threading.Thread.Sleep(500);
+                System.Threading.Thread.Sleep(300);
                 DateTime currentDateTime = DateTime.Now;
                 Console.WriteLine("Current date and time: " + currentDateTime);
                 Console.WriteLine("MONITORING");
@@ -41,22 +41,18 @@ class Program
             switch (_tecla)
             {
                 case "1": 
-                    //powerPlantManager.CreateGoalMenu(simpleGoal,eternalGoal,checklistGoal);
                     powerPlantManager.CreatePowerPlant();
                     break;
-                case "2":
-                    //powerPlantManager.ListAllGoals(simpleGoal,eternalGoal,checklistGoal);
-                    powerPlantManager.ListAllGoals();
+                case "2": 
+                    powerPlantManager.ListNames();
                     break;
                 case "3":
-                    //powerPlantManager.SaveAllGoals(simpleGoal,eternalGoal,checklistGoal);
-                    powerPlantManager.SaveAllGoals();
+                    powerPlantManager.SaveAllDevices();
                     break;
                 case "4":
                     powerPlantManager.LoadGoals();
                     break;
                 case "5":
-                    //powerPlantManager.RecordEvent();
                     break;
                 case "6":
                     Console.WriteLine("Good Bye.");

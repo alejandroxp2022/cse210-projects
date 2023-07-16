@@ -14,7 +14,7 @@ class PowerPlantManager
     public void CreatePowerPlant()
     {
         string _tecla2;
-        Console.WriteLine("The types of Energy Entity are:");
+        Console.WriteLine("Available Devices are:");
                     Console.WriteLine("     1. Tracker");
                     Console.WriteLine("     2. Inverter");
                     Console.WriteLine("     3. Battery");
