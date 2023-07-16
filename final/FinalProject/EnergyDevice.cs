@@ -1,70 +1,73 @@
 using System;
 
+// ABSTRACTION
 abstract class EnergyDevice
 {
-    //fields
-    protected string _entityName;
-    protected string _entityStatus;
-    protected string _entityDescription;
-    protected string _entityType;
+    //ENCAPSULATION
+    protected string _name;
+    protected string _status;
+    protected string _description;
+    protected string _type;
     protected string _voltage_curr;
     protected float _power_nom;
     protected int _current_curr;
     protected string _IPaddress;
-    protected string _ModbusParams;
-     public string getName() { return _entityName; }
-     public string getType() { return _entityType; }
-     public string getDesc() { return _entityDescription; }
-     public int getcurrCurr() { return _current_curr; }
-     public float getPowerNom() { return _power_nom; }
+    protected string _modbusParams;
+    public string getName() { return _name; }
+    public string getType() { return _type; }
+    public string getDesc() { return _description; }
+    public int getcurrCurr() { return _current_curr; }
+    public float getPowerNom() { return _power_nom; }
 
      // Constructors
-    public EnergyEntity(string entityType, string entityName, string entityDesc, string IPaddress, string ModbusParams )
+    public EnergyDevice(string type, string name, string desc, string IPaddress, string modbusParams )
      {
-        _entityType = entityType;
-        _entityName = entityName;
-        _entityDescription = entityDesc;
+        _type = type;
+        _name = name;
+        _description = desc;
         _IPaddress = IPaddress;
-        _ModbusParams = ModbusParams;
+        _modbusParams = modbusParams;
      }
-    public EnergyEntity()
+    public EnergyDevice()
      {
-        _entityType = "";
-        _entityName = "";
-        _entityDescription = "";
+        _type = "";
+        _name = "";
+        _description = "";
         _IPaddress = "";
-        _ModbusParams = "";
+        _modbusParams = "";
      }
 
-   public string getAttributeFromString( string StreamValues, string Parser)
+   public virtual string getAttributeFromString( string StreamValues, string Parser)
    {
       return StreamValues;
    }
-   public void setOperation( string StreamConnection, string Parser, string Value)
+   public virtual void setOperation( string StreamConnection, string Parser, string Value)
    {
       ;
    }
-   public void setValue( string StreamConnection, string Parser, string Value)
+   public virtual void setValue( string StreamConnection, string Parser, string Value)
    {
       ;
    }
-   public void setStatus( string StreamConnection, string Parser, string Value)
+   public virtual void setStatus( string StreamConnection, string Parser, string Value)
    {
       ;
    }
    public string getStatus( string StreamConnection, string deviceId )
    {
-      return _entityStatus; 
+      return _status; 
    }
-    virtual public void CreateEntity()
-    {
+
+   // INHERITANCE AND POLYMOFPHISM
+   virtual public void CreateDevice()
+   {
        // Console.Clear();
-        Console.WriteLine("What is the name of your entity?");
-        _entityName = Console.ReadLine();
+        Console.WriteLine("What is the name of your ?");
+        _name = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
-        _entityDescription = Console.ReadLine();
+        _description = Console.ReadLine();
         Console.WriteLine("What is the IP address");
         _IPaddress = Console.ReadLine();
 
-    }
+   }
 } 

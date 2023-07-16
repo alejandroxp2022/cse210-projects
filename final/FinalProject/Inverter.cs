@@ -1,41 +1,30 @@
 using System;
 
-class Inverter: EnergyTransformer
+class Inverter: EnergyDevice
 {
     //fields
-    //protected List<Entity> _entitys;
-   // protected List<Entity> Entitys { get { return _entitys; } set => _entitys = value; }
-    protected string _entityType;
-    protected string _entityName;
-    protected string _entityDesc;
-    protected int _entityPoints;
-    protected int _entityTimes;
-    protected int _entityCount;
-    //protected int _totalPoints;
-     public string getName() { return _entityName; }
-     public string getType() { return _entityType; }
-     public string getDesc() { return _entityDesc; }
-     public int getPoints() { return _entityPoints; }
-     public int getTimes() { return _entityTimes; }
-     public int getCount() { return _entityCount; }
-    public Inverter(string entityType, string entityName, string entityDesc, int entityPoints )
+    //protected List<Entity> _s;
+   // protected List<Entity> Entitys { get { return _s; } set => _s = value; }
+     public int getTimes() { return _Times; }
+     public int getCount() { return _Count; }
+    public Inverter(string type, string Name, string Desc, int Points )
      {
-        _entityType = entityType;
-        _entityName = entityName;
-        _entityDesc = entityDesc;
-        _entityPoints = entityPoints;
-        _entityTimes = 1;
-        _entityCount = 0;
-        //_totalPoints = entityPoints;
+        _Type = Type;
+        _Name = Name;
+        _Desc = Desc;
+        _Points = Points;
+        _Times = 1;
+        _Count = 0;
+        //_totalPoints = Points;
      }
     public Inverter()
      {
-        _entityType = "";
-        _entityName = "";
-        _entityDesc = "";
-        _entityPoints = 0;
-        _entityTimes = 1;
-        _entityCount = 0;
+        _Type = "";
+        _Name = "";
+        _Desc = "";
+        _Points = 0;
+        _Times = 1;
+        _Count = 0;
      }
 
 // //    public void AddEntry(Entity entry)
@@ -45,12 +34,12 @@ class Inverter: EnergyTransformer
    override public void CreateEnergyTransformer()
     {
        // Console.Clear();
-        Console.WriteLine("What is the name of your entity?");
-        _entityName = Console.ReadLine();
+        Console.WriteLine("What is the name of your ?");
+        _Name = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
-        _entityDesc = Console.ReadLine();
-        Console.WriteLine("What is the amount of points associated with this entity?");
-        _entityPoints = Convert.ToInt16(Console.ReadLine());
+        _Desc = Console.ReadLine();
+        Console.WriteLine("What is the amount of points associated with this ?");
+        _Points = Convert.ToInt16(Console.ReadLine());
 
     }
 } 
