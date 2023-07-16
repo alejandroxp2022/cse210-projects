@@ -1,6 +1,6 @@
 using System;
 
-class Tracker: EnergyGenerator
+class Tracker: EnergyDevice
 {
     //fields
     //protected List<Tracker> _trackers;

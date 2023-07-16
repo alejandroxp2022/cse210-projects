@@ -1,6 +1,6 @@
 using System;
 
-class Recloser: EnergyTransmit
+class Recloser: EnergyDevice
 {
     //fields
     protected string _entityName;

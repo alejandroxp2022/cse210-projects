@@ -1,37 +1,37 @@
 using System;
 
-class DustIQ: MeteoEntity
+abstract class EnergyDevice
 {
     //fields
-    protected string _deviceName;
-    protected string _deviceStatus;
-    protected string _deviceDescription;
-    protected string _deviceType;
+    protected string _entityName;
+    protected string _entityStatus;
+    protected string _entityDescription;
+    protected string _entityType;
     protected string _voltage_curr;
     protected float _power_nom;
     protected int _current_curr;
     protected string _IPaddress;
     protected string _ModbusParams;
-     public string getName() { return _deviceName; }
-     public string getType() { return _deviceType; }
-     public string getDesc() { return _deviceDescription; }
+     public string getName() { return _entityName; }
+     public string getType() { return _entityType; }
+     public string getDesc() { return _entityDescription; }
      public int getcurrCurr() { return _current_curr; }
      public float getPowerNom() { return _power_nom; }
 
      // Constructors
-    public DustIQ(string deviceType, string deviceName, string deviceDesc, string IPaddress, string ModbusParams )
+    public EnergyEntity(string entityType, string entityName, string entityDesc, string IPaddress, string ModbusParams )
      {
-        _deviceType = deviceType;
-        _deviceName = deviceName;
-        _deviceDescription = deviceDesc;
+        _entityType = entityType;
+        _entityName = entityName;
+        _entityDescription = entityDesc;
         _IPaddress = IPaddress;
         _ModbusParams = ModbusParams;
      }
-    public DustIQ()
+    public EnergyEntity()
      {
-        _deviceType = "";
-        _deviceName = "";
-        _deviceDescription = "";
+        _entityType = "";
+        _entityName = "";
+        _entityDescription = "";
         _IPaddress = "";
         _ModbusParams = "";
      }
@@ -54,15 +54,15 @@ class DustIQ: MeteoEntity
    }
    public string getStatus( string StreamConnection, string deviceId )
    {
-      return _deviceStatus; 
+      return _entityStatus; 
    }
-    virtual public void CreateDustIQ()
+    virtual public void CreateEntity()
     {
        // Console.Clear();
-        Console.WriteLine("What is the name of your device?");
-        _deviceName = Console.ReadLine();
+        Console.WriteLine("What is the name of your entity?");
+        _entityName = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
-        _deviceDescription = Console.ReadLine();
+        _entityDescription = Console.ReadLine();
         Console.WriteLine("What is the IP address");
         _IPaddress = Console.ReadLine();
 

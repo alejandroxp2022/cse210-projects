@@ -1,6 +1,6 @@
 using System;
 
-class Pyranometer: MeteoEntity
+class Pyranometer: MeteoDevice
 {
     //fields
     protected string _deviceName;

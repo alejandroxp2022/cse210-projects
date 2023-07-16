@@ -1,6 +1,6 @@
 using System;
 
-class Battery: EnergyStore
+class Battery: EnergyDevice
 {
     //fields
 
