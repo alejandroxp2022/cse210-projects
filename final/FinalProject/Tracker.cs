@@ -20,7 +20,7 @@ class Tracker: EnergyDevice
      public int getCount() { return _trackerCount; }
     public Tracker(string trackerType, string trackerName, string trackerDesc, int trackerPoints )
      {
-        _trackerType = trackerType;
+        _ackerType = trackerType;
         _trackerName = trackerName;
         _trackerDesc = trackerDesc;
         _trackerPoints = trackerPoints;
