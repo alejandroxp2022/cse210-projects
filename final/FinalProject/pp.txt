@@ -1,1 +1,1 @@
-EnergyGenerator|tracker Norte|A device to keep the Panels||tracker Norte
+.|tracker1|tracker located in the north|ON|127.0.0.1

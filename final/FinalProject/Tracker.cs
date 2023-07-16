@@ -12,12 +12,14 @@ class Tracker: EnergyDevice
         _target_position = tar_pos;
         _current_position = curr_pos;
         _operation_mode = oper_mode;
+        _type = "tracker";
      }
     public Tracker()
      {
         _target_position = 0;
         _current_position = 0;
         _operation_mode = "SECURITY";
+        _type = "tracker";
      }
 
    // POLYMORPHISM
