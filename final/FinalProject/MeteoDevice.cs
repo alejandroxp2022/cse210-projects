@@ -1,6 +1,6 @@
 using System;
 
-abstract class MeteoEntity
+abstract class MeteoDevice
 {
     //fields
     protected string _deviceName;
