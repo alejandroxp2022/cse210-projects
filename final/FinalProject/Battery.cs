@@ -3,34 +3,21 @@ using System;
 class Battery: EnergyDevice
 {
     //fields
-
+   public int _stored_power;
      // Constructors
-    public Battery(string entityType, string entityName, string entityDesc, string IPaddress, string ModbusParams )
+    public Battery(string type, string name, string desc, string IPaddress, string modbusParams, int stor_pow ): base (type, name,desc, IPaddress, modbusParams )
      {
-        _entityType = entityType;
-        _entityName = entityName;
-        _entityDescription = entityDesc;
-        _IPaddress = IPaddress;
-        _ModbusParams = ModbusParams;
+        _stored_power = stor_pow;
      }
     public Battery()
      {
-        _entityType = "";
-        _entityName = "";
-        _entityDescription = "";
-        _IPaddress = "";
-        _ModbusParams = "";
+        _stored_power = 0;
      }
 
-    override public void CreateEnergyStore()
+    override public void ExtraParams()
     {
        // Console.Clear();
-        Console.WriteLine("What is the name of your entity?");
-        _entityName = Console.ReadLine();
-        Console.WriteLine("What is a short despcription of it?");
-        _entityDescription = Console.ReadLine();
-        Console.WriteLine("What is the IP address");
-        _IPaddress = Console.ReadLine();
-
+        Console.WriteLine("What is the current Power Stored? kW");
+        _stored_power = int.Parse(Console.ReadLine());
     }
 } 
