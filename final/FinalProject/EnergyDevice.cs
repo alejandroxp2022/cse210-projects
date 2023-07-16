@@ -22,11 +22,12 @@ abstract class EnergyDevice
     public string getIP() { return _IPaddress; }
 
      // Constructors
-    public EnergyDevice(string type, string name, string desc, string IPaddress, string modbusParams )
+    public EnergyDevice(string type, string name, string desc, string status, string IPaddress, string modbusParams )
      {
         _type = type;
         _name = name;
         _description = desc;
+        _status = status;
         _IPaddress = IPaddress;
         _modbusParams = modbusParams;
      }

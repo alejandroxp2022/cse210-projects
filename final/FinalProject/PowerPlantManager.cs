@@ -140,7 +140,6 @@ class PowerPlantManager
         _filename = Console.ReadLine();
         using (StreamReader inputFile = new StreamReader(_filename))
         {
-            _totalPoints = Convert.ToInt16(inputFile.ReadLine());
             while (!inputFile.EndOfStream)
             {
                 string line = inputFile.ReadLine();
@@ -148,20 +147,20 @@ class PowerPlantManager
                 //string prompt = parts[1].Split(':')[0].Trim();
 
 
-                if ( parts[0] == "Battery")
+                if ( parts[0] == "battery")
                 {
-                    Battery battery = new Battery();
+                    Battery battery = new Battery(parts[0],parts[1],parts[2],parts[3],parts[4],"",0);
                     Devices.Add(battery);
 
                 }
-                if ( parts[0] == "Tracker")
+                if ( parts[0] == "tracker")
                 {
-                    Tracker tracker = new Tracker();
+                    Tracker tracker = new Tracker(parts[0],parts[1],parts[2],parts[3],parts[4],"",0,0,"");
                     Devices.Add(tracker);
                 }
-                if ( parts[0] == "Inverter")
+                if ( parts[0] == "inverter")
                 {
-                    Inverter inverter = new Inverter();
+                    Inverter inverter = new Inverter(parts[0],parts[1],parts[2],parts[3],parts[4],"",0);
                     Devices.Add(inverter);
 
                 }

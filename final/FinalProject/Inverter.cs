@@ -4,7 +4,7 @@ class Inverter: EnergyDevice
 {
     
     public int _target_power;
-    public Inverter(string type, string name, string desc, string IPaddress, string modbusParams, int targ_pow ): base (type, name,desc, IPaddress, modbusParams )
+    public Inverter(string type, string name, string desc, string status, string IPaddress, string modbusParams, int targ_pow ): base (type, name,desc, status,IPaddress, modbusParams )
      {
         _target_power = targ_pow;
         _type = "inverter";

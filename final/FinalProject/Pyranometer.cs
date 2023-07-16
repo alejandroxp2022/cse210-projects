@@ -6,7 +6,7 @@ class Pyranometer: EnergyDevice
     public int _radiation;
 
      // Constructors
-    public Pyranometer(string type, string name, string desc, string IPaddress, string modbusParams, int radiation ): base (type, name,desc, IPaddress, modbusParams )
+    public Pyranometer(string type, string name, string desc, string status, string IPaddress, string modbusParams, int radiation ): base (type, name,desc, status, IPaddress, modbusParams )
      {
         _radiation = radiation;
      }

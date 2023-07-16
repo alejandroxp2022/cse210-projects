@@ -8,7 +8,7 @@ class Recloser: EnergyDevice
    public string _operation_mode;
      // Constructors
      // INHERITANCE
-    public Recloser(string type, string name, string desc, string IPaddress, string modbusParams, float freq_inv ): base (type, name,desc, IPaddress, modbusParams )
+    public Recloser(string type, string name, string desc, string status, string IPaddress, string modbusParams, float freq_inv ): base (type, name,desc, status, IPaddress, modbusParams )
      {
         _freq_inverter = freq_inv;
         _type = "recloser";

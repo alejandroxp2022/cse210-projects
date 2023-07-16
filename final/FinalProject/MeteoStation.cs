@@ -5,7 +5,7 @@ class MeteoStation: EnergyDevice
     //fields
     public float _temperature;
     public float _wind_speed;
-    public MeteoStation(string type, string name, string desc, string IPaddress, string modbusParams, float temp, float wind_sp ): base (type, name,desc, IPaddress, modbusParams )
+    public MeteoStation(string type, string name, string desc, string status,  string IPaddress, string modbusParams, float temp, float wind_sp ): base (type, name,desc, status, IPaddress, modbusParams )
      {
       _temperature = temp;
       _wind_speed = wind_sp;

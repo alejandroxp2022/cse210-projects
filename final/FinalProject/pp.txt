@@ -1,1 +1,1 @@
-.|tracker1|tracker located in the north|ON|127.0.0.1
+tracker|tracker1|tracker located in the north|ON|127.0.0.1

@@ -7,7 +7,7 @@ class Tracker: EnergyDevice
    public float _current_position; 
 
    public string _operation_mode;
-    public Tracker(string type, string name, string desc, string IPaddress, string modbusParams, float tar_pos, float curr_pos, string oper_mode  ): base (type, name,desc, IPaddress, modbusParams )
+    public Tracker(string type, string name, string desc, string status,  string IPaddress, string modbusParams, float tar_pos, float curr_pos, string oper_mode  ): base (type, name,desc,status, IPaddress, modbusParams )
      {
         _target_position = tar_pos;
         _current_position = curr_pos;

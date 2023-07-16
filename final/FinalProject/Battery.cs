@@ -5,7 +5,7 @@ class Battery: EnergyDevice
     //fields
    public int _stored_power;
      // Constructors
-    public Battery(string type, string name, string desc, string IPaddress, string modbusParams, int stor_pow ): base (type, name,desc, IPaddress, modbusParams )
+    public Battery(string type, string name, string desc,string status,  string IPaddress, string modbusParams, int stor_pow ): base (type, name,desc, status, IPaddress, modbusParams )
      {
         _stored_power = stor_pow;
         _type = "battery";
