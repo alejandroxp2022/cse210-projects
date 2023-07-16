@@ -40,7 +40,7 @@ class Program
             Console.WriteLine("     5. Record Events");
             Console.WriteLine("     6. Quit");
             Console.Write("Select a choice from the menu: ");
-            _tecla  = Console.ReadLine();
+            _tecla  = Console.ReadLine().Trim();
             switch (_tecla)
             {
                 case "1": 

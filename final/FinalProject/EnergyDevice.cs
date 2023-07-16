@@ -62,7 +62,7 @@ abstract class EnergyDevice
    // INHERITANCE AND POLYMOFPHISM
    public void CreateDevice()
    {
-        Console.WriteLine("What is the name of your ?");
+        Console.WriteLine("What is the name of your Device?");
         _name = Console.ReadLine();
         Console.WriteLine("What is a short despcription of it?");
         _description = Console.ReadLine();

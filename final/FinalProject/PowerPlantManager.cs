@@ -36,7 +36,7 @@ class PowerPlantManager
                     Console.WriteLine("     5. Meteorological Station");
                     Console.WriteLine("     6. Pyranometer");
                     Console.WriteLine("Which type of device would you like to create?");
-                    _tecla2  = Console.ReadLine();
+                    _tecla2  = Console.ReadLine().Trim();
                     switch (_tecla2)
                     {
                         case "1":
