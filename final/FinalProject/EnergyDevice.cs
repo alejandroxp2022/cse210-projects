@@ -68,7 +68,7 @@ abstract class EnergyDevice
         _description = Console.ReadLine();
         Console.WriteLine("What is the IP address");
         _IPaddress = Console.ReadLine();
-        Console.WriteLine("What is the current Status? ON/OFF");
+        Console.WriteLine("What is the current Status? ON/OFF/FAILED");
         _status = Console.ReadLine();
         this.ExtraParams();
 
