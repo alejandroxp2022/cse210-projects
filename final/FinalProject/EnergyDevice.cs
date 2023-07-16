@@ -14,6 +14,7 @@ abstract class EnergyDevice
     protected string _IPaddress;
     protected string _modbusParams;
     public string getName() { return _name; }
+    public string getStatus() {return _status; }
     public string getType() { return _type; }
     public string getDesc() { return _description; }
     public int getcurrCurr() { return _current_curr; }

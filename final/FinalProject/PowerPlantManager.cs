@@ -10,9 +10,23 @@ class PowerPlantManager
     public int _totalPoints;
 
     public PowerPlantManager()
-    {}
-    public void CreatePowerPlant()
     {
+        /*Tracker tracker = new Tracker();
+        Inverter inverter = new Inverter();
+        Battery battery = new Battery();
+        Recloser reco = new Recloser();
+        MeteoStation meteoStation = new MeteoStation();
+        Pyranometer pyranometer = new Pyranometer();*/
+    }
+    public void CreatePowerPlant( EnergyDevice tracker, EnergyDevice inverter, EnergyDevice battery, EnergyDevice reco, EnergyDevice meteoStation, EnergyDevice pyranometer)
+    {
+        /**Tracker tracker = new Tracker();
+        Inverter inverter = new Inverter();
+        Battery battery = new Battery();
+        Recloser reco = new Recloser();
+        MeteoStation meteoStation = new MeteoStation();
+        Pyranometer pyranometer = new Pyranometer();**/
+
         string _tecla2;
         Console.WriteLine("Available Devices are:");
                     Console.WriteLine("     1. Tracker");
@@ -26,32 +40,26 @@ class PowerPlantManager
                     switch (_tecla2)
                     {
                         case "1":
-                            Tracker tracker = new Tracker();
                             tracker.CreateDevice();
                             Devices.Add(tracker);
                             break;
                         case "2":
-                            Inverter inverter = new Inverter();
                             inverter.CreateDevice();
                             Devices.Add(inverter);
                             break;
                         case "3":
-                            Battery battery = new Battery();
                             battery.CreateDevice();
                             Devices.Add(battery);
                             break;
                         case "4":
-                            Recloser reco = new Recloser();
                             reco.CreateDevice();
                             Devices.Add(reco);
                             break;
                         case "5":
-                            MeteoStation meteoStation = new MeteoStation();
                             meteoStation.CreateDevice();
                             Devices.Add(meteoStation);
                             break;
                         case "6":
-                            Pyranometer pyranometer = new Pyranometer();
                             pyranometer.CreateDevice();
                             Devices.Add(pyranometer);
                             break;
@@ -98,6 +106,10 @@ class PowerPlantManager
         //    GoalNames.Add($"{counter.ToString()}|{internal_counter.ToString()}|EnergyTransmit|{entity.getName()}");
             }
         } **/
+    }
+    public string getStatus( EnergyDevice device)
+    {
+        return device.getStatus();
     }
     public void SaveAllDevices()
     {
