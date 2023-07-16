@@ -11,10 +11,12 @@ class Recloser: EnergyDevice
     public Recloser(string type, string name, string desc, string IPaddress, string modbusParams, float freq_inv ): base (type, name,desc, IPaddress, modbusParams )
      {
         _freq_inverter = freq_inv;
+        _type = "recloser";
      }
     public Recloser()
      {
         _freq_inverter = 50;
+        _type = "recloser";
      }
   // POLYMORPHISM
     override public void ExtraParams() 

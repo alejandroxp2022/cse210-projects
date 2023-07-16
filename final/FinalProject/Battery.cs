@@ -8,10 +8,12 @@ class Battery: EnergyDevice
     public Battery(string type, string name, string desc, string IPaddress, string modbusParams, int stor_pow ): base (type, name,desc, IPaddress, modbusParams )
      {
         _stored_power = stor_pow;
+        _type = "battery";
      }
     public Battery()
      {
         _stored_power = 0;
+        _type = "battery";
      }
 
     override public void ExtraParams()

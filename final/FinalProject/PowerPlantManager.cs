@@ -120,7 +120,7 @@ class PowerPlantManager
             //now the entitys by type
             foreach (EnergyDevice device in Devices)
             {
-                outputFile.WriteLine($"EnergyGenerator{_separator}{device.getName()}{_separator}{device.getDesc()}{_separator}{_separator}{device.getName()}");
+                outputFile.WriteLine($"{device.getType()}.{_separator}{device.getName()}{_separator}{device.getDesc()}{_separator}{device.getStatus()}{_separator}{device.getIP()}");
             }
             /**foreach (EnergyTransformer device in EnergyTransformers)
             {

@@ -32,7 +32,6 @@ abstract class EnergyDevice
      }
     public EnergyDevice()
      {
-        _type = "";
         _name = "";
         _description = "";
         _IPaddress = "";

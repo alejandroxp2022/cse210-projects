@@ -7,10 +7,12 @@ class Inverter: EnergyDevice
     public Inverter(string type, string name, string desc, string IPaddress, string modbusParams, int targ_pow ): base (type, name,desc, IPaddress, modbusParams )
      {
         _target_power = targ_pow;
+        _type = "inverter";
      }
     public Inverter()
      {
         _target_power = 0;
+        _type = "inverter";
      }
 
    override public void ExtraParams()

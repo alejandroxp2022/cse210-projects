@@ -1,0 +1,1 @@
+EnergyGenerator|tracker Norte|A device to keep the Panels||tracker Norte

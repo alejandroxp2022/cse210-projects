@@ -9,10 +9,12 @@ class MeteoStation: EnergyDevice
      {
       _temperature = temp;
       _wind_speed = wind_sp;
+      _type = "meteoStation";
      }
     public MeteoStation()
      {
-         _temperature = 0;
+      _temperature = 0;
+      _type = "meteoStation";
      }
 
     override public void ExtraParams()
