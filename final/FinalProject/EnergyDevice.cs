@@ -19,6 +19,7 @@ abstract class EnergyDevice
     public string getDesc() { return _description; }
     public int getcurrCurr() { return _current_curr; }
     public float getPowerNom() { return _power_nom; }
+    public string getIP() { return _IPaddress; }
 
      // Constructors
     public EnergyDevice(string type, string name, string desc, string IPaddress, string modbusParams )

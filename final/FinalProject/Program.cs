@@ -22,13 +22,13 @@ class Program
                 Console.WriteLine("==========");
                 Console.WriteLine($"");
                 Console.WriteLine("Power Plant Live Status:");
-                Console.WriteLine($"Battery Status: {battery.getStatus()} ");
-                Console.WriteLine($"Inverter Status: {inverter.getStatus()}");
-                Console.WriteLine($"Pyranometer Status: {pyranometer.getStatus()}");
-                Console.WriteLine($"Recloser Status: {reco.getStatus()} ");
-                Console.WriteLine($"Tracker Status: {tracker.getStatus()}");
+                Console.WriteLine($"Battery Status: {battery.getStatus()} - {battery.getDesc()} - IP:{battery.getIP()}");
+                Console.WriteLine($"Inverter Status: {inverter.getStatus()} - {inverter.getDesc()} - IP:{inverter.getIP()}");
+                Console.WriteLine($"Pyranometer Status: {pyranometer.getStatus()} - {pyranometer.getDesc()} - IP:{pyranometer.getIP()}");
+                Console.WriteLine($"Recloser Status: {reco.getStatus()} - {reco.getDesc()} - IP:{reco.getIP()}");
+                Console.WriteLine($"Tracker Status: {tracker.getStatus()} - {tracker.getDesc()} - IP:{tracker.getIP()}");
                 Console.WriteLine($"");
-                Console.WriteLine($"Press Any Key to go to Menu");
+                Console.WriteLine($"Press Space Bar twice to access the Menu");
                 System.Threading.Thread.Sleep(3000);
             } 
             Console.WriteLine("");
