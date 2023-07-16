@@ -134,66 +134,27 @@ class PowerPlantManager
                 string line = inputFile.ReadLine();
                 string[] parts = line.Split(new[] { "|" }, StringSplitOptions.None);
                 //string prompt = parts[1].Split(':')[0].Trim();
+
+
                 if ( parts[0] == "Battery")
                 {
-                    //EnergyGenerator _energyGenerator = new EnergyGenerator(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToBoolean(parts[4].Trim()));
-                    Battery _battery = new Battery();
-                    EnergyStores.Add(_battery);
+                    Battery battery = new Battery();
+                    Devices.Add(battery);
 
                 }
                 if ( parts[0] == "Tracker")
                 {
-                    //EnergyTransformer _energyTransformer = new EnergyTransformer(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3].Trim()));
-                    Tracker _tracker = new Tracker();
-                    EnergyGenerators.Add(_tracker);
+                    Tracker tracker = new Tracker();
+                    Devices.Add(tracker);
                 }
                 if ( parts[0] == "Inverter")
                 {
-                    //Inverter _inverter = new Inverter(parts[0],parts[1],parts[2],Convert.ToInt16(parts[3]),Convert.ToInt16(parts[4]),Convert.ToInt16(parts[5]),Convert.ToInt16(parts[6].Trim()));   
-                    Inverter _inverter = new Inverter();
-                    EnergyTransformers.Add(_inverter);
+                    Inverter inverter = new Inverter();
+                    Devices.Add(inverter);
 
                 }
                     
             }
         }
     }
-    // public void RecordEvent()
-    // {
-    //     ListNames();
-    //     Console.WriteLine("");
-    //     Console.WriteLine("Which entity did you accomplish?");
-    //     string _orderEvent = Console.ReadLine();
-    //     foreach ( string _entityName in GoalNames)
-    //     {
-    //          string[] parts = _entityName.Split(new[] { "|" }, StringSplitOptions.None);
-    //          //verifying count
-    //          if (_orderEvent == parts[0])
-    //          {
-    //             // getting type of event
-    //             if( parts[2] == "EnergyGenerator")
-    //             {
-    //                 _pointsEarned = EnergyGenerators[Convert.ToInt16(parts[1])].getName(); 
-    //                EnergyGenerators[Convert.ToInt16(parts[1])].setChecked();
-                    
-    //             }
-    //             if( parts[2] == "EnergyTransformer")
-    //             {
-    //                 _pointsEarned = EnergyTransformers[Convert.ToInt16(parts[1])].getName(); 
-    //             }
-    //             if( parts[2] == "EnergyTransmit")
-    //             {
-    //                 _pointsEarned = EnergyTransmits[Convert.ToInt16(parts[1])].getName(); 
-    //                 int _entityTimes =EnergyTransmits[Convert.ToInt16(parts[1])].getTimes();  
-    //                 int _entityCount =EnergyTransmits[Convert.ToInt16(parts[1])].getCount();  
-    //                 _entityCount++;
-    //                 EnergyTransmits[Convert.ToInt16(parts[1])].setCount(_entityCount);   
-    //                 EnergyTransmits[Convert.ToInt16(parts[1])].setChecked(_entityTimes, _entityCount);
-    //             }
-    //          }
-    //     }
-    //     _totalPoints += _pointsEarned;
-    //     Console.WriteLine($"Congratulations! You have earned {_pointsEarned} points!");
-    //     Console.WriteLine($"You now have {_totalPoints} points");
-    // }
 } 
